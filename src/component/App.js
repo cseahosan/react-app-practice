@@ -16,8 +16,16 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-          <First name={ this.state.persons[0].name } email={ this.state.persons[0].email } address={this.state.persons[0].address}/>
-    </div>
+          { 
+              this.state.persons.map((person, index)=>{
+                 return  <First
+                             key={index}
+                             name={ person.name }
+                             email={ person.email }
+                             address={person.address}/>
+              })
+          }
+      </div>
     );
   }
 }
