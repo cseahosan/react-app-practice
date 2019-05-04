@@ -13,16 +13,36 @@ class Counter extends Component {
         this.setState({
             counter: this.state.counter + 1
         })
+
+        this.changeColor();
+    }
+
+    changeColor = () => {
+        if(this.state.counter <= 5){
+            this.setState({
+                color: 'red'
+            })
+        }else if(this.state.counter >= 15){
+            this.setState({
+                color: 'green'
+            })
+        }else{
+            this.setState({
+                color: 'black'
+            })
+        }
     }
 
     decrease = () => {
         this.setState({
             counter: this.state.counter - 1
         })
+
+        this.changeColor()
     }
     render() {
         return (
-            <div>
+            <div style={{color: this.state.color}}>
                 <h1>
                     <span onClick={ this.decrease }>- </span>
                     { this.state.counter }
